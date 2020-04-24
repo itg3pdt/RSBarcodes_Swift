@@ -61,10 +61,10 @@ open class RSAbstractCodeGenerator : RSCodeGenerator {
     
     // Check whether the given contents are valid.
     open func isValid(_ contents:String) -> Bool {
-        let length = contents.length()
+        let length = contents.rs.length()
         if length > 0 {
             for i in 0..<length {
-                if !DIGITS_STRING.contains(contents[i]) {
+                if !DIGITS_STRING.contains(contents.rs[i]) {
                     return false
                 }
             }
@@ -95,7 +95,7 @@ open class RSAbstractCodeGenerator : RSCodeGenerator {
     
     // Drawer for completed barcode.
     func drawCompleteBarcode(_ completeBarcode:String) -> UIImage? {
-        let length:Int = completeBarcode.length()
+        let length:Int = completeBarcode.rs.length()
         if length <= 0 {
             return nil
         }
@@ -118,7 +118,7 @@ open class RSAbstractCodeGenerator : RSCodeGenerator {
             context.setLineWidth(1)
             
             for i in 0..<length {
-                if completeBarcode[i] == "1" {
+                if completeBarcode.rs[i] == "1" {
                     let x = i + (2 + 1)
                     context.move(to: CGPoint(x: CGFloat(x), y: 1.5))
                     context.addLine(to: CGPoint(x: CGFloat(x), y: size.height - 2))
@@ -173,7 +173,7 @@ open class RSAbstractCodeGenerator : RSCodeGenerator {
     
     // Generate CI related code image
     open class func generateCode(_ contents:String, inputCorrectionLevel: InputCorrectionLevel, filterName:String) -> UIImage? {
-        if filterName.length() > 0 {
+        if filterName.rs.length() > 0 {
             if let filter = CIFilter(name: filterName) {
                 filter.setDefaults()
                 let inputMessage = contents.data(using: String.Encoding.utf8, allowLossyConversion: false)
@@ -182,7 +182,7 @@ open class RSAbstractCodeGenerator : RSCodeGenerator {
                     filter.setValue(inputCorrectionLevel.rawValue, forKey: "inputCorrectionLevel")
                 }
                 if let outputImage = filter.outputImage {
-                    if let cgImage = ContextMaker.make().createCGImage(outputImage, from: outputImage.extent) {
+                    if let cgImage = RSContextMaker.make().createCGImage(outputImage, from: outputImage.extent) {
                         return UIImage(cgImage: cgImage, scale: UIScreen.main.scale, orientation: .up)
                     }
                 }

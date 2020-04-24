@@ -61,18 +61,18 @@ open class RSCode39Generator: RSAbstractCodeGenerator {
     ]
     
     func encodeCharacterString(_ characterString:String) -> String {
-        let location = CODE39_ALPHABET_STRING.location(characterString)
+        let location = CODE39_ALPHABET_STRING.rs.location(characterString)
         return CODE39_CHARACTER_ENCODINGS[location]
     }
     
     // MAKR: RSAbstractCodeGenerator
     
     override open func isValid(_ contents: String) -> Bool {
-        if contents.length() > 0
+        if contents.rs.length() > 0
             && contents.range(of: "*") == nil
             && contents == contents.uppercased() {
             for character in contents {
-                let location = CODE39_ALPHABET_STRING.location(String(character))
+                let location = CODE39_ALPHABET_STRING.rs.location(String(character))
                 if location == NSNotFound {
                     return false
                 }

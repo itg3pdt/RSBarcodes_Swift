@@ -135,10 +135,10 @@ open class RSExtendedCode39Generator: RSCode39Generator {
     }
     
     override open func isValid(_ contents: String) -> Bool {
-        if contents.length() > 0 {
+        if contents.rs.length() > 0 {
             let encContents = self.encodeContents(contents)
             for character in encContents {
-                let location = CODE39_ALPHABET_STRING.location(String(character))
+                let location = CODE39_ALPHABET_STRING.rs.location(String(character))
                 if location == NSNotFound {
                     return false
                 }

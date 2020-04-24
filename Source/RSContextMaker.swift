@@ -8,7 +8,7 @@
 
 import UIKit
 
-final class ContextMaker {
+final class RSContextMaker {
     static func make() -> CIContext {
         return CIContext(options: nil)
     }

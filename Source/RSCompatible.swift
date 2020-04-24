@@ -1,0 +1,62 @@
+//
+//  Ext.swift
+//  RSBarcodesSample
+//
+//  Created by R0CKSTAR on 6/10/14.
+//  Copyright (c) 2014 P.D.Q. All rights reserved.
+//
+
+import UIKit
+
+protocol RSCompatible {
+    associatedtype CompatibleType
+    var rs: CompatibleType { get }
+}
+extension RSCompatible {
+    var rs: RS<Self> {
+        get {
+            return RS(self)
+        }
+    }
+}
+
+class RS<Base> {
+    var base: Base
+    init(_ base: Base) {
+        self.base = base
+    }
+}
+
+extension String: RSCompatible { }
+extension RS where Base == String {
+    func length() -> Int {
+        return base.count
+    }
+    
+    func trim() -> String {
+        return base.trimmingCharacters(in: .whitespacesAndNewlines)
+    }
+    
+    func substring(_ location:Int, length:Int) -> String! {
+        return (base as NSString).substring(with: NSMakeRange(location, length))
+    }
+    
+    subscript(index: Int) -> String! {
+        get {
+            return self.substring(index, length: 1)
+        }
+    }
+    
+    func location(_ other: String) -> Int {
+        return (base as NSString).range(of: other).location
+    }
+    
+    func contains(_ other: String) -> Bool {
+        return (base as NSString).contains(other)
+    }
+    
+    // http://stackoverflow.com/questions/6644004/how-to-check-if-nsstring-is-contains-a-numeric-value
+    func isNumeric() -> Bool {
+        return (base as NSString).rangeOfCharacter(from: CharacterSet.decimalDigits.inverted).location == NSNotFound
+    }
+}

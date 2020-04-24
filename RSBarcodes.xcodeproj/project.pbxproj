@@ -23,10 +23,10 @@
 		D450EB7A23506647008610B2 /* RSUPCEGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D450EB6723506647008610B2 /* RSUPCEGenerator.swift */; };
 		D450EB7B23506647008610B2 /* RSCode93Generator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D450EB6823506647008610B2 /* RSCode93Generator.swift */; };
 		D450EB7C23506647008610B2 /* RSFocusMarkLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = D450EB6923506647008610B2 /* RSFocusMarkLayer.swift */; };
-		D450EB7D23506647008610B2 /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D450EB6A23506647008610B2 /* StringExtension.swift */; };
+		D450EB7D23506647008610B2 /* RSCompatible.swift in Sources */ = {isa = PBXBuildFile; fileRef = D450EB6A23506647008610B2 /* RSCompatible.swift */; };
 		D450EB7E23506647008610B2 /* RSExtendedCode39Generator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D450EB6B23506647008610B2 /* RSExtendedCode39Generator.swift */; };
 		D450EB7F23506647008610B2 /* RSITFGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D450EB6C23506647008610B2 /* RSITFGenerator.swift */; };
-		D450EB81235066BB008610B2 /* ContextMaker.swift in Sources */ = {isa = PBXBuildFile; fileRef = D450EB80235066BB008610B2 /* ContextMaker.swift */; };
+		D450EB81235066BB008610B2 /* RSContextMaker.swift in Sources */ = {isa = PBXBuildFile; fileRef = D450EB80235066BB008610B2 /* RSContextMaker.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -49,10 +49,10 @@
 		D450EB6723506647008610B2 /* RSUPCEGenerator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RSUPCEGenerator.swift; sourceTree = "<group>"; };
 		D450EB6823506647008610B2 /* RSCode93Generator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RSCode93Generator.swift; sourceTree = "<group>"; };
 		D450EB6923506647008610B2 /* RSFocusMarkLayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RSFocusMarkLayer.swift; sourceTree = "<group>"; };
-		D450EB6A23506647008610B2 /* StringExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringExtension.swift; sourceTree = "<group>"; };
+		D450EB6A23506647008610B2 /* RSCompatible.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RSCompatible.swift; sourceTree = "<group>"; };
 		D450EB6B23506647008610B2 /* RSExtendedCode39Generator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RSExtendedCode39Generator.swift; sourceTree = "<group>"; };
 		D450EB6C23506647008610B2 /* RSITFGenerator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RSITFGenerator.swift; sourceTree = "<group>"; };
-		D450EB80235066BB008610B2 /* ContextMaker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContextMaker.swift; sourceTree = "<group>"; };
+		D450EB80235066BB008610B2 /* RSContextMaker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RSContextMaker.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -111,10 +111,10 @@
 				D450EB6723506647008610B2 /* RSUPCEGenerator.swift */,
 				D450EB6823506647008610B2 /* RSCode93Generator.swift */,
 				D450EB6923506647008610B2 /* RSFocusMarkLayer.swift */,
-				D450EB6A23506647008610B2 /* StringExtension.swift */,
+				D450EB6A23506647008610B2 /* RSCompatible.swift */,
 				D450EB6B23506647008610B2 /* RSExtendedCode39Generator.swift */,
 				D450EB6C23506647008610B2 /* RSITFGenerator.swift */,
-				D450EB80235066BB008610B2 /* ContextMaker.swift */,
+				D450EB80235066BB008610B2 /* RSContextMaker.swift */,
 			);
 			path = Source;
 			sourceTree = "<group>";
@@ -200,12 +200,12 @@
 				D450EB7123506647008610B2 /* RSCode39Generator.swift in Sources */,
 				D450EB7C23506647008610B2 /* RSFocusMarkLayer.swift in Sources */,
 				D450EB7923506647008610B2 /* RSCornersLayer.swift in Sources */,
-				D450EB81235066BB008610B2 /* ContextMaker.swift in Sources */,
+				D450EB81235066BB008610B2 /* RSContextMaker.swift in Sources */,
 				D450EB7223506647008610B2 /* RSCodeReaderViewController.swift in Sources */,
 				D450EB7423506647008610B2 /* RSCodeGenerator.swift in Sources */,
 				D450EB7A23506647008610B2 /* RSUPCEGenerator.swift in Sources */,
 				D450EB7323506647008610B2 /* RSITF14Generator.swift in Sources */,
-				D450EB7D23506647008610B2 /* StringExtension.swift in Sources */,
+				D450EB7D23506647008610B2 /* RSCompatible.swift in Sources */,
 				D450EB7023506647008610B2 /* RSCode39Mod43Generator.swift in Sources */,
 				D450EB7523506647008610B2 /* RSCodeDataMatrixGenerator.swift in Sources */,
 				D450EB6F23506647008610B2 /* UIColorExtension.swift in Sources */,

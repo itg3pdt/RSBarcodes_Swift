@@ -46,12 +46,12 @@ open class RSEANGenerator: RSAbstractCodeGenerator {
     }
     
     override open func isValid(_ contents: String) -> Bool {
-        if super.isValid(contents) && self.length == contents.length() {
+        if super.isValid(contents) && self.length == contents.rs.length() {
             var sum_odd = 0
             var sum_even = 0
             
             for i in 0..<(self.length - 1) {
-                let digit = Int(contents[i])!
+                let digit = Int(contents.rs[i])!
                 if i % 2 == (self.length == 13 ? 0 : 1) {
                     sum_even += digit
                 } else {
@@ -59,7 +59,7 @@ open class RSEANGenerator: RSAbstractCodeGenerator {
                 }
             }
             let checkDigit = (10 - (sum_even + sum_odd * 3) % 10) % 10
-            return Int(contents[contents.length() - 1]) == checkDigit
+            return Int(contents.rs[contents.rs.length() - 1]) == checkDigit
         }
         return false
     }
@@ -80,16 +80,16 @@ open class RSEANGenerator: RSAbstractCodeGenerator {
         var lefthandParity = "OOOO"
         var newContents = contents
         if self.length == 13 {
-            lefthandParity = self.lefthandParities[Int(contents[0])!]
-            newContents = contents.substring(1, length: contents.length() - 1)
+            lefthandParity = self.lefthandParities[Int(contents.rs[0])!]
+            newContents = contents.rs.substring(1, length: contents.rs.length() - 1)
         }
         
         var barcode = ""
-        for i in 0..<newContents.length() {
-            let digit = Int(newContents[i])!
-            if i < lefthandParity.length() {
-                barcode += self.parityEncodingTable[digit][lefthandParity[i]]!
-                if i == lefthandParity.length() - 1 {
+        for i in 0..<newContents.rs.length() {
+            let digit = Int(newContents.rs[i])!
+            if i < lefthandParity.rs.length() {
+                barcode += self.parityEncodingTable[digit][lefthandParity.rs[i]]!
+                if i == lefthandParity.rs.length() - 1 {
                     barcode += self.centerGuardPattern()
                 }
             } else {
@@ -115,13 +115,13 @@ class RSEAN13Generator: RSEANGenerator {
 class RSISBN13Generator: RSEAN13Generator {
     override func isValid(_ contents: String) -> Bool {
         // http://www.appsbarcode.com/ISBN.php
-        return super.isValid(contents) && contents.substring(0, length: 3) == "978"
+        return super.isValid(contents) && contents.rs.substring(0, length: 3) == "978"
     }
 }
 
 class RSISSN13Generator: RSEAN13Generator {
     override func isValid(_ contents: String) -> Bool {
         // http://www.appsbarcode.com/ISSN.php
-        return super.isValid(contents) && contents.substring(0, length: 3) == "977"
+        return super.isValid(contents) && contents.rs.substring(0, length: 3) == "977"
     }
 }
