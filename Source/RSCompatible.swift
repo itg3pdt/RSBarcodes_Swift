@@ -9,8 +9,8 @@
 import UIKit
 
 protocol RSCompatible {
-    associatedtype CompatibleType
-    var rs: CompatibleType { get }
+    associatedtype RSCompatibleType
+    var rs: RSCompatibleType { get }
 }
 extension RSCompatible {
     var rs: RS<Self> {
